@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
-import { auth, provider } from "./firebase";
+import { auth, provider } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import Header from "./components/Header";
+import Header from "../components/Header";
 
 function SignInButton() {
   const signInWithGoogle = () => {
