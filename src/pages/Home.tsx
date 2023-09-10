@@ -3,6 +3,7 @@ import { auth, provider } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../stylesheet/home.scss";
 import Header from "../components/Header";
+import Top from "../components/Top";
 
 function SignInButton() {
   const signInWithGoogle = () => {
@@ -10,21 +11,6 @@ function SignInButton() {
   };
 
   return <button onClick={signInWithGoogle}>Googleでサインイン</button>;
-}
-
-function SignOutButton() {
-  return <button onClick={() => auth.signOut()}>サインアウト</button>;
-}
-
-function UserInfo() {
-  if (!auth.currentUser) return null;
-
-  return (
-    <div className="UserInfo">
-      <img src={auth.currentUser.photoURL || undefined} alt=""></img>
-      <p>{auth.currentUser.displayName}</p>
-    </div>
-  );
 }
 
 function Home() {
@@ -35,8 +21,7 @@ function Home() {
       {user ? (
         <>
           <Header />
-          <UserInfo />
-          <SignOutButton />
+          <Top />
         </>
       ) : (
         <SignInButton />
