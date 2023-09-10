@@ -1,9 +1,10 @@
 .Header {
   height: 120px;
-  border: 1px solid #000;
+  border: 2px solid #949593;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: #cf9b48;
 
   &__user-info {
     display: flex;
