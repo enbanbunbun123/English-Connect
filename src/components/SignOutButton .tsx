@@ -2,8 +2,16 @@ import { auth } from "../firebase";
 import "../stylesheet/SignOutButton.scss";
 
 const SignOutButton: React.FC = () => {
+  const handleSignOut = () => {
+    const isConfirmed = window.confirm("サインアウトしますか？");
+
+    if (isConfirmed) {
+      auth.signOut();
+    }
+  };
+
   return (
-    <button className="SignOutButton" onClick={() => auth.signOut()}>
+    <button className="SignOutButton" onClick={handleSignOut}>
       サインアウト
     </button>
   );
