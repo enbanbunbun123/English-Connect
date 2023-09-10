@@ -1,7 +1,7 @@
 import React from "react";
 import { auth } from "../firebase";
 import "../stylesheet/header.scss";
-import SignOutButton from "./SignOutButton ";
+import SignOutButton from "./SignOutButton";
 
 const Header: React.FC = () => {
   if (!auth.currentUser) return null;

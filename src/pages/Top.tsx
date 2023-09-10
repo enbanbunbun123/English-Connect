@@ -1,5 +1,5 @@
 import { auth } from "../firebase";
-import SignOutButton from "../components/SignOutButton ";
+import SignOutButton from "../components/SignOutButton";
 import "../stylesheet/top.scss";
 
 const Top: React.FC = () => {
