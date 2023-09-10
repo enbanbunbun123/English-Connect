@@ -1,17 +1,9 @@
-import { signInWithPopup } from "firebase/auth";
-import { auth, provider } from "../firebase";
+import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../stylesheet/home.scss";
 import Header from "../components/Header";
-import Top from "../components/Top";
-
-function SignInButton() {
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, provider);
-  };
-
-  return <button onClick={signInWithGoogle}>Googleでサインイン</button>;
-}
+import Top from "./Top";
+import Landing from "./Landing";
 
 function Home() {
   const [user] = useAuthState(auth);
@@ -24,7 +16,7 @@ function Home() {
           <Top />
         </>
       ) : (
-        <SignInButton />
+        <Landing />
       )}
     </div>
   );
