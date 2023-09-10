@@ -2,9 +2,7 @@ import React from "react";
 import { auth } from "../firebase";
 import "../stylesheet/header.scss";
 
-type HeaderProps = {};
-
-const Header: React.FC<HeaderProps> = () => {
+const Header: React.FC = () => {
   if (!auth.currentUser) return null;
 
   return (
@@ -12,6 +10,7 @@ const Header: React.FC<HeaderProps> = () => {
       <div className="Header">
         <div className="Header__user-info">
           <img src={auth.currentUser.photoURL || undefined} alt=""></img>
+          <p>{auth.currentUser.displayName}</p>
         </div>
       </div>
     </>

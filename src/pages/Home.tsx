@@ -1,6 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import "../stylesheet/home.scss";
 import Header from "../components/Header";
 
 function SignInButton() {
@@ -30,7 +31,7 @@ function Home() {
   const [user] = useAuthState(auth);
 
   return (
-    <div>
+    <div className="home">
       {user ? (
         <>
           <Header />
