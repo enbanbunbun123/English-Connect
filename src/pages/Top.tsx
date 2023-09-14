@@ -1,6 +1,7 @@
 import { auth } from "../firebase";
 import SignOutButton from "../components/SignOutButton";
 import "../stylesheet/top.scss";
+import PostForm from "../components/PostForm";
 
 const Top: React.FC = () => {
   if (!auth.currentUser) return null;
@@ -13,6 +14,7 @@ const Top: React.FC = () => {
           <p>{auth.currentUser.displayName}</p>
         </div>
         <SignOutButton />
+        <PostForm />
       </div>
     </>
   );
