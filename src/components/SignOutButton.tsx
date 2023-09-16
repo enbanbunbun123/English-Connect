@@ -12,7 +12,7 @@ const SignOutButton: React.FC = () => {
 
   return (
     <button className="SignOutButton" onClick={handleSignOut}>
-      サインアウト
+      <div className="SignOutButton__title">サインアウト</div>
     </button>
   );
 };
