@@ -1,12 +1,13 @@
 import { auth } from "../firebase";
 import "../stylesheet/top.scss";
-import PostForm from "../components/PostForm";
 import { useEffect, useState } from "react";
 import { getDatabase, off, onValue, ref, remove } from "firebase/database";
 import Card from "../components/Card";
+import { useNavigate } from "react-router-dom";
 
 const Top: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const db = getDatabase();
@@ -32,12 +33,16 @@ const Top: React.FC = () => {
     remove(postRef);
   };
 
+  const navigateToPostForm = () => {
+    navigate("/post-form");
+  };
+
   if (!auth.currentUser) return null;
 
   return (
     <>
       <div className="Top">
-        <PostForm />
+        {/* <PostForm /> */}
         <div className="posts">
           {posts.map((post) => (
             <Card
@@ -53,6 +58,7 @@ const Top: React.FC = () => {
             />
           ))}
         </div>
+        <button onClick={navigateToPostForm}>投稿する</button>
       </div>
     </>
   );
