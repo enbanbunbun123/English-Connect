@@ -1,11 +1,12 @@
 import { getDatabase, push, ref, set } from "firebase/database";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { app, auth } from "../firebase";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import "../stylesheet/postForm.scss";
 
 const PostForm = () => {
+  const [isSignIn, setIsSignIn] = useState<boolean | null>(null);
   const [postText, setPostText] = useState("");
   const [postDescription, setpostDescription] = useState("");
   const userId = auth.currentUser?.uid;
@@ -15,7 +16,21 @@ const PostForm = () => {
   const [startData, setStartData] = useState<string>("");
   const navigate = useNavigate();
 
-  if (!userId) {
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        setIsSignIn(true);
+      } else {
+        setIsSignIn(false);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  if (isSignIn === false) {
     console.error("サインインしていません");
   }
 
