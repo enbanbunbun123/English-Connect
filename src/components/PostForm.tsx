@@ -3,6 +3,7 @@ import { useState } from "react";
 import { app, auth } from "../firebase";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
+import "../stylesheet/postForm.scss";
 
 const PostForm = () => {
   const [postText, setPostText] = useState("");
@@ -47,7 +48,9 @@ const PostForm = () => {
     <>
       <Header />
       <div>
-        <button onClick={navigateToTop}>戻る</button>
+        <button className="PostForm__back-button" onClick={navigateToTop}>
+          ＜
+        </button>
         <textarea
           value={postText}
           onChange={(e) => setPostText(e.target.value)}
