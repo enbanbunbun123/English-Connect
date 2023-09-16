@@ -1,3 +1,5 @@
+import "../stylesheet/card.scss";
+
 type CardProps = {
   userName: string;
   text: string;
