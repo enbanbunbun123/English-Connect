@@ -1,8 +1,10 @@
+import React from "react";
 import { auth } from "../firebase";
 import "../stylesheet/signOutButton.scss";
 
 const SignOutButton: React.FC = () => {
-  const handleSignOut = () => {
+  const handleSignOut = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     const isConfirmed = window.confirm("サインアウトしますか？");
 
     if (isConfirmed) {
