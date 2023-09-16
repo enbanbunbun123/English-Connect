@@ -3,6 +3,7 @@ import "../stylesheet/top.scss";
 import PostForm from "../components/PostForm";
 import { useEffect, useState } from "react";
 import { getDatabase, off, onValue, ref, remove } from "firebase/database";
+import Card from "../components/Card";
 
 const Top: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -39,14 +40,16 @@ const Top: React.FC = () => {
         <PostForm />
         <div className="posts">
           {posts.map((post) => (
-            <div key={post.id} className="post">
-              <h3>{post.userName}</h3>
-              <p>{post.text}</p>
-              <span>{post.timestamp}</span>
-              {auth.currentUser?.uid === post.userId && (
-                <button onClick={() => handleDelete(post.id)}>削除</button>
-              )}
-            </div>
+            <Card
+              key={post.id}
+              userName={post.userName}
+              text={post.text}
+              timestamp={post.timestamp}
+              userId={post.userId}
+              currentUserId={auth.currentUser?.uid}
+              onDelete={handleDelete}
+              id={post.id}
+            />
           ))}
         </div>
       </div>
