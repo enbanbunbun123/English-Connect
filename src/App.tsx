@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/post-form" element={<PostForm />} />
-        <Route path="/item-detail" element={<ItemDetail />} />
+        <Route path="/item-detail/:id" element={<ItemDetail />} />
       </Routes>
     </div>
   );

@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({
   const navigate = useNavigate();
 
   const navigateToItemDetail = () => {
-    navigate("/item-detail");
+    navigate(`/item-detail/${id}`);
   };
 
   return (
