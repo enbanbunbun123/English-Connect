@@ -49,6 +49,7 @@ const Top: React.FC = () => {
               currentUserId={auth.currentUser?.uid}
               onDelete={handleDelete}
               id={post.id}
+              startData={post.startData}
             />
           ))}
         </div>
