@@ -5,9 +5,6 @@ type CardProps = {
   userName: string;
   text: string;
   timestamp: string;
-  userId: string;
-  currentUserId: string | undefined;
-  onDelete: (postId: string) => void;
   id: string;
   startData: string;
 };
@@ -16,9 +13,6 @@ const Card: React.FC<CardProps> = ({
   userName,
   text,
   timestamp,
-  userId,
-  currentUserId,
-  onDelete,
   id,
   startData,
 }) => {
@@ -35,9 +29,6 @@ const Card: React.FC<CardProps> = ({
         <p className="card__text">{userName}</p>
         <div>作成日 : {new Date(timestamp).toLocaleString()}</div>
         <div>開始日 : {startData}</div>
-        {currentUserId === userId && (
-          <button onClick={() => onDelete(id)}>削除</button>
-        )}
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import { auth } from "../firebase";
 import "../stylesheet/top.scss";
 import { useEffect, useState } from "react";
-import { getDatabase, off, onValue, ref, remove } from "firebase/database";
+import { getDatabase, off, onValue, ref } from "firebase/database";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
 
@@ -27,12 +27,6 @@ const Top: React.FC = () => {
     };
   }, []);
 
-  const handleDelete = (postId: string) => {
-    const db = getDatabase();
-    const postRef = ref(db, `posts/${postId}`);
-    remove(postRef);
-  };
-
   const navigateToPostForm = () => {
     navigate("/post-form");
   };
@@ -50,9 +44,6 @@ const Top: React.FC = () => {
               userName={post.userName}
               text={post.text}
               timestamp={post.timestamp}
-              userId={post.userId}
-              currentUserId={auth.currentUser?.uid}
-              onDelete={handleDelete}
               id={post.id}
               startData={post.startData}
             />
