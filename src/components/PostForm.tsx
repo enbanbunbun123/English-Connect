@@ -8,6 +8,7 @@ const PostForm = () => {
   const userName = auth.currentUser?.displayName;
   const userImage = auth.currentUser?.photoURL;
   const timestamp = new Date().toISOString();
+  const [startData, setStartData] = useState<string>("");
 
   if (!userId) {
     console.error("サインインしていません");
@@ -23,8 +24,10 @@ const PostForm = () => {
       userImage: userImage,
       text: postText,
       timestamp: timestamp,
+      startData: startData,
     });
     setPostText("");
+    setStartData("");
   };
 
   return (
@@ -35,6 +38,13 @@ const PostForm = () => {
           onChange={(e) => setPostText(e.target.value)}
           placeholder="投稿内容"
         />
+        <label>
+          <input
+            type="date"
+            value={startData}
+            onChange={(e) => setStartData(e.target.value)}
+          />
+        </label>
         <button onClick={handlePost}>投稿</button>
       </div>
     </>
