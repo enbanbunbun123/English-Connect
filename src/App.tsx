@@ -3,6 +3,7 @@ import "./App.scss";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import PostForm from "./components/PostForm";
+import ItemDetail from "./pages/ItemDetail";
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/post-form" element={<PostForm />} />
+        <Route path="/item-detail" element={<ItemDetail />} />
       </Routes>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "../stylesheet/card.scss";
 
 type CardProps = {
@@ -21,11 +22,17 @@ const Card: React.FC<CardProps> = ({
   id,
   startData,
 }) => {
+  const navigate = useNavigate();
+
+  const navigateToItemDetail = () => {
+    navigate("/item-detail");
+  };
+
   return (
     <>
-      <div className="card">
-        <h3 className="card__title">{userName}</h3>
-        <p className="card__text">{text}</p>
+      <div className="card" onClick={navigateToItemDetail}>
+        <h3 className="card__title">{text}</h3>
+        <p className="card__text">{userName}</p>
         <div>作成日 : {new Date(timestamp).toLocaleString()}</div>
         <div>開始日 : {startData}</div>
         {currentUserId === userId && (
