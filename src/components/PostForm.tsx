@@ -18,6 +18,11 @@ const PostForm = () => {
   }
 
   const handlePost = () => {
+    if (!postText || !startData) {
+      window.alert("投稿内容と開始予定日は入力必須項目です。");
+      return;
+    }
+
     const db = getDatabase(app);
     const postRef = ref(db, "posts");
     const newPostRef = push(postRef);
