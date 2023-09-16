@@ -31,6 +31,7 @@ const PostForm = () => {
     });
     setPostText("");
     setStartData("");
+    navigate("/");
   };
 
   const navigateToTop = () => {
