@@ -4,3 +4,15 @@
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+@media screen and (max-width: 425px) {
+  .card {
+    padding: 10px;
+    &__title {
+      margin: 10px 0;
+    }
+    &__text {
+      margin: 10px 0;
+    }
+  }
+}

@@ -22,8 +22,8 @@ const Card: React.FC<CardProps> = ({
   return (
     <>
       <div className="card">
-        <h3>{userName}</h3>
-        <p>{text}</p>
+        <h3 className="card__title">{userName}</h3>
+        <p className="card__text">{text}</p>
         <span>{new Date(timestamp).toLocaleString()}</span>
         {currentUserId === userId && (
           <button onClick={() => onDelete(id)}>削除</button>
