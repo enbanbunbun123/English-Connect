@@ -1,6 +1,8 @@
 import { getDatabase, push, ref, set } from "firebase/database";
 import { useState } from "react";
 import { app, auth } from "../firebase";
+import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 
 const PostForm = () => {
   const [postText, setPostText] = useState("");
@@ -9,6 +11,7 @@ const PostForm = () => {
   const userImage = auth.currentUser?.photoURL;
   const timestamp = new Date().toISOString();
   const [startData, setStartData] = useState<string>("");
+  const navigate = useNavigate();
 
   if (!userId) {
     console.error("サインインしていません");
@@ -30,9 +33,15 @@ const PostForm = () => {
     setStartData("");
   };
 
+  const navigateToTop = () => {
+    navigate("/");
+  };
+
   return (
     <>
+      <Header />
       <div>
+        <button onClick={navigateToTop}>戻る</button>
         <textarea
           value={postText}
           onChange={(e) => setPostText(e.target.value)}
