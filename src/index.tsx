@@ -19,4 +19,4 @@ if (rootElement) {
   console.error("Root element not found.");
 }
 
-reportWebVitals(console.log);
+reportWebVitals(() => {});
