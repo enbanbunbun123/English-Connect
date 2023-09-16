@@ -25,6 +25,12 @@
     cursor: pointer;
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: #fff;
+      color: #cf9b48;
+      border: 1px solid #949593;
+    }
   }
 
   @media screen and (max-width: 650px) {
