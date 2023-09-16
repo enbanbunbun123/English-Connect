@@ -50,28 +50,33 @@ const PostForm = () => {
   return (
     <>
       <Header />
-      <div>
+      <div className="PostForm">
         <button className="PostForm__back-button" onClick={navigateToTop}>
           ＜
         </button>
-        <textarea
-          value={postText}
-          onChange={(e) => setPostText(e.target.value)}
-          placeholder="投稿内容"
-        />
-        <textarea
-          value={postDescription}
-          onChange={(e) => setpostDescription(e.target.value)}
-          placeholder="投稿の説明"
-        />
-        <label>
-          <input
-            type="datetime-local"
-            value={startData}
-            onChange={(e) => setStartData(e.target.value)}
+        <div className="PostForm__contents">
+          <textarea
+            className="PostForm__contents__title"
+            value={postText}
+            onChange={(e) => setPostText(e.target.value)}
+            placeholder="投稿内容"
           />
-        </label>
-        <button onClick={handlePost}>投稿</button>
+          <textarea
+            className="PostForm__contents__description"
+            value={postDescription}
+            onChange={(e) => setpostDescription(e.target.value)}
+            placeholder="投稿の説明"
+          />
+          <label className="PostForm__contents__data">
+            <div>開始日 :</div>
+            <input
+              type="datetime-local"
+              value={startData}
+              onChange={(e) => setStartData(e.target.value)}
+            />
+          </label>
+          <button onClick={handlePost}>投稿</button>
+        </div>
       </div>
     </>
   );
