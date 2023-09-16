@@ -7,6 +7,7 @@ import "../stylesheet/postForm.scss";
 
 const PostForm = () => {
   const [postText, setPostText] = useState("");
+  const [postDescription, setpostDescription] = useState("");
   const userId = auth.currentUser?.uid;
   const userName = auth.currentUser?.displayName;
   const userImage = auth.currentUser?.photoURL;
@@ -34,9 +35,11 @@ const PostForm = () => {
       text: postText,
       timestamp: timestamp,
       startData: startData,
+      postDescription: postDescription,
     });
     setPostText("");
     setStartData("");
+    setpostDescription("");
     navigate("/");
   };
 
@@ -56,9 +59,14 @@ const PostForm = () => {
           onChange={(e) => setPostText(e.target.value)}
           placeholder="投稿内容"
         />
+        <textarea
+          value={postDescription}
+          onChange={(e) => setpostDescription(e.target.value)}
+          placeholder="投稿の説明"
+        />
         <label>
           <input
-            type="date"
+            type="datetime-local"
             value={startData}
             onChange={(e) => setStartData(e.target.value)}
           />
