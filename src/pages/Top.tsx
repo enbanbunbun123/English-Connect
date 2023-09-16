@@ -2,7 +2,7 @@ import { auth } from "../firebase";
 import "../stylesheet/top.scss";
 import PostForm from "../components/PostForm";
 import { useEffect, useState } from "react";
-import { getDatabase, off, onValue, ref, set } from "firebase/database";
+import { getDatabase, off, onValue, ref, remove } from "firebase/database";
 
 const Top: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -25,6 +25,12 @@ const Top: React.FC = () => {
     };
   }, []);
 
+  const handleDelete = (postId: string) => {
+    const db = getDatabase();
+    const postRef = ref(db, `posts/${postId}`);
+    remove(postRef);
+  };
+
   if (!auth.currentUser) return null;
 
   return (
@@ -37,6 +43,9 @@ const Top: React.FC = () => {
               <h3>{post.userName}</h3>
               <p>{post.text}</p>
               <span>{post.timestamp}</span>
+              {auth.currentUser?.uid === post.userId && (
+                <button onClick={() => handleDelete(post.id)}>削除</button>
+              )}
             </div>
           ))}
         </div>
