@@ -43,7 +43,7 @@ const Top: React.FC = () => {
     <>
       <div className="Top">
         {/* <PostForm /> */}
-        <div className="posts">
+        <div className="Top__contents">
           {posts.map((post) => (
             <Card
               key={post.id}
@@ -58,7 +58,9 @@ const Top: React.FC = () => {
             />
           ))}
         </div>
-        <button onClick={navigateToPostForm}>投稿する</button>
+        <button className="Top__post-button" onClick={navigateToPostForm}>
+          +
+        </button>
       </div>
     </>
   );
