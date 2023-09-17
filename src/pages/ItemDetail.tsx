@@ -12,6 +12,8 @@ const ItemDetail: React.FC = () => {
   const currentUserId = auth.currentUser?.uid;
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [editText, setEditText] = useState<string>("");
+  const [editDescription, setEditDescription] = useState<string>("");
+  const [editStartData, setEditStartData] = useState<string>("");
 
   const [postData, setPostData] = useState<{
     userId?: string;
@@ -60,6 +62,8 @@ const ItemDetail: React.FC = () => {
   const handleEdit = () => {
     setIsEdit(true);
     setEditText(postData?.text || "");
+    setEditDescription(postData?.postDescription || "");
+    setEditStartData(postData?.startData || "");
   };
 
   const handleSave = () => {
@@ -68,6 +72,8 @@ const ItemDetail: React.FC = () => {
     set(postRef, {
       ...postData,
       text: editText,
+      postDescription: editDescription,
+      startData: editStartData,
     }).then(() => {
       setIsEdit(false);
     });
@@ -81,10 +87,22 @@ const ItemDetail: React.FC = () => {
       </button>
       <div className="ItemDetail">
         {isEdit ? (
-          <textarea
-            value={editText}
-            onChange={(e) => setEditText(e.target.value)}
-          />
+          <>
+            <textarea
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
+            />
+            <textarea
+              value={editDescription}
+              onChange={(e) => setEditDescription(e.target.value)}
+              placeholder="説明"
+            />
+            <input
+              type="datetime-local"
+              value={editStartData}
+              onChange={(e) => setEditStartData(e.target.value)}
+            />
+          </>
         ) : (
           <div className="ItemDetail__contents">
             <h3>イベント名 : {postData?.text}</h3>
@@ -107,14 +125,15 @@ const ItemDetail: React.FC = () => {
         {currentUserId === postUserId && (
           <>
             {isEdit ? (
-              <button onClick={handleSave}>保存</button>
+              <button className="ItemDetail__button" onClick={handleSave}>
+                変更を保存する
+              </button>
             ) : (
-              <button onClick={handleEdit}>編集</button>
+              <button className="ItemDetail__button" onClick={handleEdit}>
+                投稿を編集する
+              </button>
             )}
-            <button
-              className="ItemDetail__delete-button"
-              onClick={handleDelete}
-            >
+            <button className="ItemDetail__button" onClick={handleDelete}>
               投稿を削除する
             </button>
           </>
