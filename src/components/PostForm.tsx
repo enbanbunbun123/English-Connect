@@ -74,7 +74,7 @@ const PostForm = () => {
             className="PostForm__contents__title"
             value={postText}
             onChange={(e) => setPostText(e.target.value)}
-            placeholder="投稿内容"
+            placeholder="イベント名"
           />
           <textarea
             className="PostForm__contents__description"

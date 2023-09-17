@@ -91,11 +91,12 @@ const ItemDetail: React.FC = () => {
             <textarea
               value={editText}
               onChange={(e) => setEditText(e.target.value)}
+              placeholder="イベント名"
             />
             <textarea
               value={editDescription}
               onChange={(e) => setEditDescription(e.target.value)}
-              placeholder="説明"
+              placeholder="投稿の説明"
             />
             <input
               type="datetime-local"
