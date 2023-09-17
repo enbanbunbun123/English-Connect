@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header";
-import { getDatabase, off, onValue, ref, remove } from "firebase/database";
+import { getDatabase, off, onValue, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import "../stylesheet/itemDetail.scss";
@@ -10,6 +10,8 @@ const ItemDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [postUserId, setPostUserId] = useState<string | null>(null);
   const currentUserId = auth.currentUser?.uid;
+  const [isEdit, setIsEdit] = useState<boolean>(false);
+  const [editText, setEditText] = useState<string>("");
 
   const [postData, setPostData] = useState<{
     userId?: string;
@@ -55,6 +57,22 @@ const ItemDetail: React.FC = () => {
     }
   };
 
+  const handleEdit = () => {
+    setIsEdit(true);
+    setEditText(postData?.text || "");
+  };
+
+  const handleSave = () => {
+    const db = getDatabase();
+    const postRef = ref(db, `posts/${id}`);
+    set(postRef, {
+      ...postData,
+      text: editText,
+    }).then(() => {
+      setIsEdit(false);
+    });
+  };
+
   return (
     <>
       <Header />
@@ -62,25 +80,44 @@ const ItemDetail: React.FC = () => {
         ＜
       </button>
       <div className="ItemDetail">
-        <div className="ItemDetail__contents">
-          <h3>イベント名 : {postData?.text}</h3>
-          <p>説明 : {postData?.postDescription}</p>
-          <p className="ItemDetail__contents__user">
-            投稿者 :{" "}
-            <img
-              className="ItemDetail__contents__user-image"
-              src={postData?.userImage || undefined}
-              alt=""
-            ></img>
-            {postData?.userName}
-          </p>
-          <p>投稿日 : {new Date(postData?.timestamp || "").toLocaleString()}</p>
-          <p>開始日 : {postData?.startData}</p>
-        </div>
+        {isEdit ? (
+          <textarea
+            value={editText}
+            onChange={(e) => setEditText(e.target.value)}
+          />
+        ) : (
+          <div className="ItemDetail__contents">
+            <h3>イベント名 : {postData?.text}</h3>
+            <p>説明 : {postData?.postDescription}</p>
+            <p className="ItemDetail__contents__user">
+              投稿者 :{" "}
+              <img
+                className="ItemDetail__contents__user-image"
+                src={postData?.userImage || undefined}
+                alt=""
+              ></img>
+              {postData?.userName}
+            </p>
+            <p>
+              投稿日 : {new Date(postData?.timestamp || "").toLocaleString()}
+            </p>
+            <p>開始日 : {postData?.startData}</p>
+          </div>
+        )}
         {currentUserId === postUserId && (
-          <button className="ItemDetail__delete-button" onClick={handleDelete}>
-            投稿を削除する
-          </button>
+          <>
+            {isEdit ? (
+              <button onClick={handleSave}>保存</button>
+            ) : (
+              <button onClick={handleEdit}>編集</button>
+            )}
+            <button
+              className="ItemDetail__delete-button"
+              onClick={handleDelete}
+            >
+              投稿を削除する
+            </button>
+          </>
         )}
       </div>
     </>
