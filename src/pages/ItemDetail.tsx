@@ -57,16 +57,20 @@ const ItemDetail: React.FC = () => {
       <button className="PostForm__back-button" onClick={navigateToTop}>
         ＜
       </button>
-      <div className="ItemDetail__contents">
-        <h3>{postData?.text}</h3>
-        <p>説明: {postData?.postDescription}</p>
-        <p>投稿者: {postData?.userName}</p>
-        <p>作成日: {new Date(postData?.timestamp || "").toLocaleString()}</p>
-        <p>開始日: {postData?.startData}</p>
+      <div className="ItemDetail">
+        <div className="ItemDetail__contents">
+          <h3>{postData?.text}</h3>
+          <p>説明: {postData?.postDescription}</p>
+          <p>投稿者: {postData?.userName}</p>
+          <p>作成日: {new Date(postData?.timestamp || "").toLocaleString()}</p>
+          <p>開始日: {postData?.startData}</p>
+        </div>
+        {currentUserId === postUserId && (
+          <button className="ItemDetail__delete-button" onClick={handleDelete}>
+            投稿を削除する
+          </button>
+        )}
       </div>
-      {currentUserId === postUserId && (
-        <button onClick={handleDelete}>削除</button>
-      )}
     </>
   );
 };
