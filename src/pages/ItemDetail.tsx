@@ -67,6 +67,11 @@ const ItemDetail: React.FC = () => {
   };
 
   const handleSave = () => {
+    if (!editText || !editStartData) {
+      window.alert("イベント名と開始予定日は入力必須項目です。");
+      return;
+    }
+
     const db = getDatabase();
     const postRef = ref(db, `posts/${id}`);
     set(postRef, {

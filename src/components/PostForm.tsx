@@ -36,7 +36,7 @@ const PostForm = () => {
 
   const handlePost = () => {
     if (!postText || !startData) {
-      window.alert("投稿内容と開始予定日は入力必須項目です。");
+      window.alert("イベント名と開始予定日は入力必須項目です。");
       return;
     }
 
