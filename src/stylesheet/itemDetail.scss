@@ -4,6 +4,22 @@
   justify-content: center;
   flex-direction: column;
 
+  &__contents {
+    &__user {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px 0 0;
+    }
+
+    &__user-image {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 0 10px;
+    }
+  }
+
   &__delete-button {
     padding: 10px 30px;
     border-radius: 50px;

@@ -40,15 +40,19 @@ const ItemDetail: React.FC = () => {
   };
 
   const handleDelete = () => {
-    const db = getDatabase();
-    const postRef = ref(db, `posts/${id}`);
-    remove(postRef)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        console.error("Error deleting post:", error);
-      });
+    const isConfirmed = window.confirm("本当に削除しますか？");
+
+    if (isConfirmed) {
+      const db = getDatabase();
+      const postRef = ref(db, `posts/${id}`);
+      remove(postRef)
+        .then(() => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("Error deleting post:", error);
+        });
+    }
   };
 
   return (
@@ -59,11 +63,19 @@ const ItemDetail: React.FC = () => {
       </button>
       <div className="ItemDetail">
         <div className="ItemDetail__contents">
-          <h3>{postData?.text}</h3>
-          <p>説明: {postData?.postDescription}</p>
-          <p>投稿者: {postData?.userName}</p>
-          <p>作成日: {new Date(postData?.timestamp || "").toLocaleString()}</p>
-          <p>開始日: {postData?.startData}</p>
+          <h3>イベント名 : {postData?.text}</h3>
+          <p>説明 : {postData?.postDescription}</p>
+          <p className="ItemDetail__contents__user">
+            投稿者 :{" "}
+            <img
+              className="ItemDetail__contents__user-image"
+              src={postData?.userImage || undefined}
+              alt=""
+            ></img>
+            {postData?.userName}
+          </p>
+          <p>投稿日 : {new Date(postData?.timestamp || "").toLocaleString()}</p>
+          <p>開始日 : {postData?.startData}</p>
         </div>
         {currentUserId === postUserId && (
           <button className="ItemDetail__delete-button" onClick={handleDelete}>
