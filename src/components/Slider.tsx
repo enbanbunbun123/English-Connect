@@ -25,7 +25,7 @@ const Slider: React.FC = () => {
       <div className="Slider">
         <SlickSlider {...settings}>
           {images.map((image, index) => (
-            <div key={index}>
+            <div className="Slider__image" key={index}>
               <img src={image} alt={`${index + 1}`} />
             </div>
           ))}
