@@ -8,6 +8,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
+import BackToHomeButton from "./BackToHomeButton";
 
 const PostForm = () => {
   const [isSignIn, setIsSignIn] = useState<boolean | null>(null);
@@ -79,16 +80,10 @@ const PostForm = () => {
     navigate("/");
   };
 
-  const navigateToTop = () => {
-    navigate("/");
-  };
-
   return (
     <>
       <div className="PostForm">
-        <button className="PostForm__back-button" onClick={navigateToTop}>
-          ＜
-        </button>
+        <BackToHomeButton />
         <div className="PostForm__contents">
           <textarea
             className="PostForm__contents__title"

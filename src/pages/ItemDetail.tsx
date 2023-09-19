@@ -3,6 +3,7 @@ import { getDatabase, off, onValue, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import "../stylesheet/itemDetail.scss";
+import BackToHomeButton from "../components/BackToHomeButton";
 
 const ItemDetail: React.FC = () => {
   const navigate = useNavigate();
@@ -37,10 +38,6 @@ const ItemDetail: React.FC = () => {
       off(postRef, "value", listener);
     };
   }, [id]);
-
-  const navigateToTop = () => {
-    navigate("/");
-  };
 
   const handleDelete = () => {
     const isConfirmed = window.confirm("本当に削除しますか？");
@@ -85,9 +82,7 @@ const ItemDetail: React.FC = () => {
 
   return (
     <>
-      <button className="PostForm__back-button" onClick={navigateToTop}>
-        ＜
-      </button>
+      <BackToHomeButton />
       <div className="ItemDetail">
         {isEdit ? (
           <>
