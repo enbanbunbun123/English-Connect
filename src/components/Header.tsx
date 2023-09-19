@@ -3,6 +3,7 @@ import { auth } from "../firebase";
 import "../stylesheet/header.scss";
 import SignOutButton from "./SignOutButton";
 import { User } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -25,10 +26,14 @@ const Header: React.FC = () => {
       <div className="Header">
         <SignOutButton />
         {user && (
-          <div className="Header__user-info">
-            <img src={user.photoURL || undefined} alt=""></img>
-            <p>{user.displayName}</p>
-          </div>
+          <>
+            <div className="Header__user-info">
+              <img src={user.photoURL || undefined} alt=""></img>
+            </div>
+            <Link to={`/my-page/${user.uid}`}>
+              <div className="Header__user-info">My Page</div>
+            </Link>
+          </>
         )}
       </div>
     </>
