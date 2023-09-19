@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom";
-import Header from "../components/Header";
 import { getDatabase, off, onValue, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase";
@@ -86,7 +85,6 @@ const ItemDetail: React.FC = () => {
 
   return (
     <>
-      <Header />
       <button className="PostForm__back-button" onClick={navigateToTop}>
         ＜
       </button>

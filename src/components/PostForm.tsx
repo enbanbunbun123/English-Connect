@@ -1,7 +1,6 @@
 import { ref as DatabaseRef, getDatabase, push, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import { app, auth, storage } from "../firebase";
-import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import "../stylesheet/postForm.scss";
 import {
@@ -86,7 +85,6 @@ const PostForm = () => {
 
   return (
     <>
-      <Header />
       <div className="PostForm">
         <button className="PostForm__back-button" onClick={navigateToTop}>
           ＜
