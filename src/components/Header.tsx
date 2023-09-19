@@ -24,17 +24,25 @@ const Header: React.FC = () => {
   return (
     <>
       <div className="Header">
-        <SignOutButton />
-        {user && (
-          <>
-            <div className="Header__user-info">
-              <img src={user.photoURL || undefined} alt=""></img>
-            </div>
-            <Link to={`/my-page/${user.uid}`}>
-              <div className="Header__user-info">My Page</div>
-            </Link>
-          </>
-        )}
+        <div className="Header__left">
+          {user && (
+            <>
+              <Link to={`/my-page/${user.uid}`}>
+                <div className="Header__left__user-info">My Page</div>
+              </Link>
+            </>
+          )}
+        </div>
+        <div className="Header__right">
+          <SignOutButton />
+          {user && (
+            <>
+              <div className="Header__right__user-info">
+                <img src={user.photoURL || undefined} alt=""></img>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </>
   );
