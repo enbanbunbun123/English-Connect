@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import PostForm from "./components/PostForm";
+import PostForm from "./pages/PostForm";
 import ItemDetail from "./pages/ItemDetail";
 import MyPage from "./pages/MyPage";
 import Header from "./components/Header";

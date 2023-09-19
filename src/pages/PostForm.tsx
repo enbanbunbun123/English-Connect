@@ -8,7 +8,7 @@ import {
   getDownloadURL,
   uploadBytesResumable,
 } from "firebase/storage";
-import BackToHomeButton from "./BackToHomeButton";
+import BackToHomeButton from "../components/BackToHomeButton";
 
 const PostForm = () => {
   const [isSignIn, setIsSignIn] = useState<boolean | null>(null);
