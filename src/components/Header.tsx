@@ -27,11 +27,11 @@ const Header: React.FC = () => {
         <div className="Header__left">
           {user && (
             <>
-              <Link to={`/`}>
-                <div className="Header__left__user-info">Top</div>
+              <Link className="Header__left__menu" to={`/`}>
+                <div>Top</div>
               </Link>
-              <Link to={`/my-page/${user.uid}`}>
-                <div className="Header__left__user-info">My Page</div>
+              <Link className="Header__left__menu" to={`/my-page/${user.uid}`}>
+                <div>マイページ</div>
               </Link>
             </>
           )}
