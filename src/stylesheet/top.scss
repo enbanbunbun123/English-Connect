@@ -31,6 +31,11 @@
       border: 1px solid #949593;
     }
   }
+  @media screen and (max-width: 1024px) {
+    &__contents {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 
   @media screen and (max-width: 650px) {
     &__contents {
