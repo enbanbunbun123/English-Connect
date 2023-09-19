@@ -1,0 +1,85 @@
+.MyPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #949593;
+    background-color: #d6d6d6;
+    padding: 30px 40px;
+    border-radius: 20px;
+    width: 30%;
+    margin-top: 40px;
+
+    &__button {
+      padding: 10px 30px;
+      border-radius: 50px;
+      color: #fff;
+      background-color: #cf9b48;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid #949593;
+      margin: 10px 0 0;
+      font-size: 15px;
+
+      &:hover {
+        background-color: #fff;
+        color: #cf9b48;
+        border: 1px solid #949593;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  @media screen and (max-width: 768px) {
+    &__title {
+      font-size: 26px;
+    }
+
+    &__contents {
+      width: 50%;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    &__title {
+      font-size: 24px;
+    }
+
+    &__contents {
+      margin-top: 30px;
+
+      &__button {
+        padding: 10px;
+      }
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}

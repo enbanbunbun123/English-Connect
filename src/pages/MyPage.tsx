@@ -1,6 +1,7 @@
 import { getAuth, updateProfile } from "firebase/auth";
 import BackToHomeButton from "../components/BackToHomeButton";
 import { useState } from "react";
+import "../stylesheet/myPage.scss";
 
 const MyPage = () => {
   const auth = getAuth();
@@ -33,27 +34,32 @@ const MyPage = () => {
     <>
       <BackToHomeButton />
       <div className="MyPage">
-        {isEditing ? (
-          <>
-            <input
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              placeholder="名前を入力"
-            />
-            <input
-              value={photoURL}
-              onChange={(e) => setPhotoURL(e.target.value)}
-              placeholder="画像のURLを入力"
-            />
-            <button onClick={handleSave}>編集完了</button>
-          </>
-        ) : (
-          <>
-            <img src={photoURL} alt="ユーザーの写真" />
-            <p>{displayName}</p>
-            <button onClick={handleEdit}>編集</button>
-          </>
-        )}
+        <div className="MyPage__contents">
+          <div className="MyPage__title">ユーザー情報</div>
+          {isEditing ? (
+            <>
+              <input
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                placeholder="名前を入力"
+              />
+              <input
+                value={photoURL}
+                onChange={(e) => setPhotoURL(e.target.value)}
+                placeholder="画像のURLを入力"
+              />
+              <button onClick={handleSave}>編集完了</button>
+            </>
+          ) : (
+            <>
+              <img src={photoURL} alt="ユーザーの写真" />
+              <p>{displayName}</p>
+              <button className="MyPage__contents__button" onClick={handleEdit}>
+                プロフィール編集
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </>
   );
