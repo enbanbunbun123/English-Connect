@@ -8,6 +8,7 @@ type CardProps = {
   timestamp: string;
   id: string;
   startData: string;
+  imageUrl?: string;
 };
 
 const Card: React.FC<CardProps> = ({
@@ -16,6 +17,7 @@ const Card: React.FC<CardProps> = ({
   timestamp,
   id,
   startData,
+  imageUrl,
 }) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState<number>(0);
@@ -47,12 +49,13 @@ const Card: React.FC<CardProps> = ({
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    return `開始まで${hours}h ${minutes}m ${seconds}s`;
+    return `開始まで ${hours}h ${minutes}m ${seconds}s`;
   };
 
   return (
     <>
       <div className="card" onClick={navigateToItemDetail}>
+        <img src={imageUrl} alt=""></img>
         <h3 className="card__title">{text}</h3>
         <p className="card__text">{userName}</p>
         <div>作成日 : {new Date(timestamp).toLocaleString()}</div>

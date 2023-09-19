@@ -46,6 +46,7 @@ const Top: React.FC = () => {
               timestamp={post.timestamp}
               id={post.id}
               startData={post.startData}
+              imageUrl={post.imageUrl}
             />
           ))}
         </div>
