@@ -41,9 +41,7 @@ const Top: React.FC = () => {
           {posts.map((post) => (
             <Card
               key={post.id}
-              userName={post.userName}
               text={post.text}
-              timestamp={post.timestamp}
               id={post.id}
               startData={post.startData}
               imageUrl={post.imageUrl}

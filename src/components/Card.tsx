@@ -3,22 +3,13 @@ import "../stylesheet/card.scss";
 import { useEffect, useState } from "react";
 
 type CardProps = {
-  userName: string;
   text: string;
-  timestamp: string;
   id: string;
   startData: string;
   imageUrl?: string;
 };
 
-const Card: React.FC<CardProps> = ({
-  userName,
-  text,
-  timestamp,
-  id,
-  startData,
-  imageUrl,
-}) => {
+const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState<number>(0);
 
@@ -56,9 +47,7 @@ const Card: React.FC<CardProps> = ({
     <>
       <div className="card" onClick={navigateToItemDetail}>
         <img className="card__image" src={imageUrl} alt=""></img>
-        <h3 className="card__title">{text}</h3>
-        <p className="card__text">{userName}</p>
-        <div>作成日 : {new Date(timestamp).toLocaleString()}</div>
+        <div className="card__title">{text}</div>
         <div>{formatTimeLeft()}</div>
       </div>
     </>
