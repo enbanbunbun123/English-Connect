@@ -112,8 +112,14 @@ const PostForm = () => {
               onChange={(e) => setStartData(e.target.value)}
             />
           </label>
-          <input type="file" onChange={handleImageChanged} />
-          <button onClick={handlePost}>投稿</button>
+          <input
+            className="PostForm__contents__image"
+            type="file"
+            onChange={handleImageChanged}
+          />
+          <button className="PostForm__post-button" onClick={handlePost}>
+            投稿
+          </button>
         </div>
       </div>
     </>
