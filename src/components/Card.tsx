@@ -55,7 +55,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <>
       <div className="card" onClick={navigateToItemDetail}>
-        <img src={imageUrl} alt=""></img>
+        <img className="card__image" src={imageUrl} alt=""></img>
         <h3 className="card__title">{text}</h3>
         <p className="card__text">{userName}</p>
         <div>作成日 : {new Date(timestamp).toLocaleString()}</div>
