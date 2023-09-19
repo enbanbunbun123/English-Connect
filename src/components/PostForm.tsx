@@ -1,9 +1,14 @@
-import { getDatabase, push, ref, set } from "firebase/database";
+import { ref as DatabaseRef, getDatabase, push, set } from "firebase/database";
 import { useEffect, useState } from "react";
-import { app, auth } from "../firebase";
+import { app, auth, storage } from "../firebase";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import "../stylesheet/postForm.scss";
+import {
+  ref as StorageRef,
+  getDownloadURL,
+  uploadBytesResumable,
+} from "firebase/storage";
 
 const PostForm = () => {
   const [isSignIn, setIsSignIn] = useState<boolean | null>(null);
@@ -15,6 +20,7 @@ const PostForm = () => {
   const timestamp = new Date().toISOString();
   const [startData, setStartData] = useState<string>("");
   const navigate = useNavigate();
+  const [image, setImage] = useState<File | null>(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -34,14 +40,29 @@ const PostForm = () => {
     console.error("サインインしていません");
   }
 
-  const handlePost = () => {
+  const handleImageChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+
+  const handlePost = async () => {
     if (!postText || !startData) {
       window.alert("イベント名と開始予定日は入力必須項目です。");
       return;
     }
 
+    let imageUrl = "";
+    if (image) {
+      const storageRef = StorageRef(storage, `post-images/${image.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, image);
+
+      await uploadTask;
+      imageUrl = await getDownloadURL(storageRef);
+    }
+
     const db = getDatabase(app);
-    const postRef = ref(db, "posts");
+    const postRef = DatabaseRef(db, "posts");
     const newPostRef = push(postRef);
     set(newPostRef, {
       userId: userId,
@@ -51,6 +72,7 @@ const PostForm = () => {
       timestamp: timestamp,
       startData: startData,
       postDescription: postDescription,
+      imageUrl: imageUrl,
     });
     setPostText("");
     setStartData("");
@@ -90,6 +112,7 @@ const PostForm = () => {
               onChange={(e) => setStartData(e.target.value)}
             />
           </label>
+          <input type="file" onChange={handleImageChanged} />
           <button onClick={handlePost}>投稿</button>
         </div>
       </div>
