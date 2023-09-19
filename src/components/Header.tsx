@@ -27,6 +27,9 @@ const Header: React.FC = () => {
         <div className="Header__left">
           {user && (
             <>
+              <Link to={`/`}>
+                <div className="Header__left__user-info">Top</div>
+              </Link>
               <Link to={`/my-page/${user.uid}`}>
                 <div className="Header__left__user-info">My Page</div>
               </Link>
@@ -37,9 +40,11 @@ const Header: React.FC = () => {
           <SignOutButton />
           {user && (
             <>
-              <div className="Header__right__user-info">
-                <img src={user.photoURL || undefined} alt=""></img>
-              </div>
+              <Link to={`/my-page/${user.uid}`}>
+                <div className="Header__right__user-info">
+                  <img src={user.photoURL || undefined} alt=""></img>
+                </div>
+              </Link>
             </>
           )}
         </div>
