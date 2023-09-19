@@ -15,6 +15,11 @@ const MyPage = () => {
   const handleEdit = () => [setIsEditing(true)];
 
   const handleSave = async () => {
+    if (!displayName.trim()) {
+      window.alert("名前の入力は必須項目です。");
+      return;
+    }
+
     if (user) {
       await updateProfile(user, {
         displayName: displayName,
