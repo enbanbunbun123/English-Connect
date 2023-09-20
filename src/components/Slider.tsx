@@ -44,15 +44,14 @@ const Slider: React.FC = () => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
+          className="Swiper__container"
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
               <img className="Slider__image" src={image} alt={`${index + 1}`} />
             </SwiperSlide>
           ))}
-          <div className="slider-controller">
+          <div className="Swiper__controller">
             <div className="swiper-button-prev slider-arrow">
               <div className="arrow-back-outline">1</div>
             </div>
