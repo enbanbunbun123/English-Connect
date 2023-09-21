@@ -17,9 +17,37 @@ const Landing: React.FC = () => {
               <div className="Landing__text__contents">
                 PC,スマートフォンでいつでもどこでも全国のイベントを投稿・検索できます。あなたも始めてみませんか？
               </div>
+              <SignInButton />
             </div>
-            <SignInButton />
           </div>
+        </div>
+        <div className="Landing__contents">
+          <div className="Landing__contents__title">Contents</div>
+          <ol className="Landing__contents__content">
+            <li>
+              <span>Event Searchについて</span>
+              <p>
+                本webサービスはコロナによって開催されなくなったイベントや開催されるようになったイベントをユーザー間で共有することを目的としています。
+              </p>
+              <p>
+                有名なイベントからローカルなイベントまで、幅広く投稿可能です。
+              </p>
+            </li>
+            <li>
+              <span>イベントの投稿・閲覧</span>
+              <p>
+                googleでサインインをすると、イベントの投稿と閲覧が可能です。
+              </p>
+              <p>
+                投稿できるイベントは有名なものからローカルなものまで投稿可能です。
+              </p>
+            </li>
+            <li>
+              <span>ゲストモードでの閲覧</span>
+              <p>ゲストモードではサインインをせずに投稿の閲覧が可能です。</p>
+              <p>※ゲストモードでの投稿はできませんので、ご注意ください。</p>
+            </li>
+          </ol>
         </div>
       </div>
     </>
