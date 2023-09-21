@@ -42,7 +42,11 @@
       transition: color 0.3s;
 
       :hover {
-        color: rgba(0, 0, 0, 0.5);
+        color: rgba(150, 150, 150, 0.5);
+      }
+
+      div {
+        color: #fff;
       }
     }
   }
