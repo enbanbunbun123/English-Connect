@@ -36,7 +36,7 @@ const Top: React.FC = () => {
   return (
     <>
       <div className="Top">
-        {/* <PostForm /> */}
+        <div className="Top__title">投稿一覧</div>
         <div className="Top__contents">
           {posts.map((post) => (
             <Card
