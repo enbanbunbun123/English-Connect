@@ -10,18 +10,18 @@ import "swiper/scss/scrollbar";
 import "../stylesheet/slider.scss";
 
 const Slider: React.FC = () => {
-  const images = [
-    "images/event1.jpg",
-    "images/event2.jpg",
-    "images/event2.jpg",
-    "images/event2.jpg",
-    "images/event2.jpg",
-    "images/event2.jpg",
-    "images/event1.jpg",
-    "images/event1.jpg",
-    "images/event1.jpg",
-    "images/event1.jpg",
-  ];
+  // const images = [
+  //   "images/event1.jpg",
+  //   "images/event2.jpg",
+  //   "images/event2.jpg",
+  //   "images/event2.jpg",
+  //   "images/event2.jpg",
+  //   "images/event2.jpg",
+  //   "images/event1.jpg",
+  //   "images/event1.jpg",
+  //   "images/event1.jpg",
+  //   "images/event1.jpg",
+  // ];
 
   return (
     <>
