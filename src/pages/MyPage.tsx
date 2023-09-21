@@ -10,9 +10,12 @@ import {
   query,
   ref,
 } from "firebase/database";
+import Card from "../components/Card";
 
 interface UserPost {
   text: string;
+  startData: string;
+  imageUrl: string;
 }
 
 const fetchUserPosts = async (userId: string) => {
@@ -99,15 +102,24 @@ const MyPage = () => {
             </>
           )}
         </div>
-        {userPosts && (
-          <>
-            {Object.keys(userPosts).map((key) => (
-              <div key={key}>
-                <p>{userPosts[key].text}</p>
-              </div>
-            ))}
-          </>
-        )}
+        <div className="MyPage__posts">
+          <div className="MyPage__posts__title">過去の投稿</div>
+          <div className="MyPage__posts__contents">
+            {userPosts && (
+              <>
+                {Object.keys(userPosts).map((key) => (
+                  <Card
+                    key={key}
+                    id={key}
+                    text={userPosts[key].text}
+                    startData={userPosts[key].startData}
+                    imageUrl={userPosts[key].imageUrl}
+                  />
+                ))}
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
