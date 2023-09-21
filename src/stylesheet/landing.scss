@@ -1,7 +1,37 @@
 .Landing {
-  &__title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 50px 0;
+  &__text {
+    width: 50%;
+    &__title {
+      font-size: 30px;
+      font-weight: 400;
+      z-index: 1;
+      color: #fff;
+    }
+
+    &__contents {
+      color: #fff;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
