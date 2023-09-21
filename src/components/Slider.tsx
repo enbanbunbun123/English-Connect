@@ -1,5 +1,6 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+
+// import { Navigation, Pagination, EffectCoverflow } from "swiper";
 
 import "swiper/scss";
 import "swiper/scss/navigation";
@@ -25,7 +26,7 @@ const Slider: React.FC = () => {
   return (
     <>
       <div className="Slider">
-        <Swiper
+        {/* <Swiper
           modules={[EffectCoverflow, Pagination, Navigation]}
           effect="coverflow"
           grabCursor={true}
@@ -60,7 +61,7 @@ const Slider: React.FC = () => {
             </div>
             <div className="swiper-pagination"></div>
           </div>
-        </Swiper>
+        </Swiper> */}
       </div>
     </>
   );
