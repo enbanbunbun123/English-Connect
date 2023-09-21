@@ -94,7 +94,11 @@ const MyPage = () => {
             </>
           ) : (
             <>
-              <img src={photoURL} alt="ユーザーの写真" />
+              <img
+                className="MyPage__contents__image"
+                src={photoURL}
+                alt="ユーザーの写真"
+              />
               <p>{displayName}</p>
               <button className="MyPage__contents__button" onClick={handleEdit}>
                 プロフィール編集
