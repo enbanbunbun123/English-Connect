@@ -1,9 +1,40 @@
 import { getAuth, updateProfile } from "firebase/auth";
 import BackToHomeButton from "../components/BackToHomeButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../stylesheet/myPage.scss";
+import {
+  equalTo,
+  get,
+  getDatabase,
+  orderByChild,
+  query,
+  ref,
+} from "firebase/database";
+
+interface UserPost {
+  text: string;
+}
+
+const fetchUserPosts = async (userId: string) => {
+  const db = getDatabase();
+  const postsRef = ref(db, "posts");
+  const userPostQuery = query(
+    postsRef,
+    orderByChild("userId"),
+    equalTo(userId)
+  );
+  const snapshot = await get(userPostQuery);
+  if (snapshot.exists()) {
+    return snapshot.val() as Record<string, UserPost>;
+  } else {
+    return null;
+  }
+};
 
 const MyPage = () => {
+  const [userPosts, setUserPosts] = useState<Record<string, UserPost> | null>(
+    null
+  );
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -13,7 +44,7 @@ const MyPage = () => {
   );
   const [photoURL, setPhotoURL] = useState<string>(user?.photoURL || "");
 
-  const handleEdit = () => [setIsEditing(true)];
+  const handleEdit = () => setIsEditing(true);
 
   const handleSave = async () => {
     if (!displayName.trim()) {
@@ -29,6 +60,14 @@ const MyPage = () => {
       setIsEditing(false);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      fetchUserPosts(user.uid).then((posts) => {
+        setUserPosts(posts);
+      });
+    }
+  }, [user]);
 
   return (
     <>
@@ -60,6 +99,15 @@ const MyPage = () => {
             </>
           )}
         </div>
+        {userPosts && (
+          <>
+            {Object.keys(userPosts).map((key) => (
+              <div key={key}>
+                <p>{userPosts[key].text}</p>
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </>
   );
