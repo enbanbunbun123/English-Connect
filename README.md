@@ -1,6 +1,6 @@
 # Event Search
 ## こちらのURLからサービスを利用できます。
-https://fir-signin-99989.firebaseapp.com/my-page/mYDvRpX8AgRqy6HB4pujM2V00pp1
+https://fir-signin-99989.firebaseapp.com/
 
 __Event Search__ は、ユーザー間でのイベントの投稿・閲覧をするためのwebサービスです。
 
