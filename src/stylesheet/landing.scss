@@ -1,6 +1,8 @@
 .Landing {
   &__text {
+    margin-bottom: 20px;
     width: 50%;
+
     &__title {
       font-size: 30px;
       font-weight: 400;
@@ -9,6 +11,8 @@
     }
 
     &__contents {
+      font-size: 18px;
+      margin-top: 10px;
       color: #fff;
     }
   }
@@ -33,5 +37,36 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media screen and (max-width: 768px) {
+    &__text {
+      margin-bottom: 10px;
+      width: 60%;
+
+      &__title {
+        font-size: 25px;
+      }
+
+      &__contents {
+        margin-top: 5px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    &__text {
+      width: 70%;
+
+      &__title {
+        font-size: 18px;
+      }
+
+      &__contents {
+        margin-top: 5px;
+        font-size: 11px;
+      }
+    }
   }
 }

@@ -25,9 +25,9 @@ const SignInButton: React.FC = () => {
   };
 
   return (
-    <button className="SignInButton" onClick={signInWithGoogle}>
-      Googleでサインイン
-    </button>
+    <div className="SignInButton" onClick={signInWithGoogle}>
+      <img src="signup_google.png" alt="googleでサインイン"></img>
+    </div>
   );
 };
 
