@@ -30,15 +30,20 @@ const Header: React.FC = () => {
               <Link className="Header__left__menu" to={`/`}>
                 <div>Top</div>
               </Link>
-              <Link className="Header__left__menu" to={`/my-page/${user.uid}`}>
-                <div>マイページ</div>
-              </Link>
+              {!user.isAnonymous && (
+                <Link
+                  className="Header__left__menu"
+                  to={`/my-page/${user.uid}`}
+                >
+                  <div>マイページ</div>
+                </Link>
+              )}
             </>
           )}
         </div>
         <div className="Header__right">
           <SignOutButton />
-          {user && (
+          {user && !user.isAnonymous && (
             <>
               <Link to={`/my-page/${user.uid}`}>
                 <div className="Header__right__user-info">
