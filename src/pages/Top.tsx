@@ -7,7 +7,20 @@ import { useNavigate } from "react-router-dom";
 
 const Top: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
+  const [isGuest, setIsGuest] = useState<boolean | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setIsGuest(auth.currentUser?.isAnonymous || false);
+
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setIsGuest(currentUser?.isAnonymous || false);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     const db = getDatabase();
@@ -31,6 +44,14 @@ const Top: React.FC = () => {
     navigate("/post-form");
   };
 
+  const handlePostButtonClick = () => {
+    if (isGuest) {
+      window.alert("ゲストモードでは投稿できません。");
+      return;
+    }
+    navigateToPostForm();
+  };
+
   if (!auth.currentUser) return null;
 
   return (
@@ -48,7 +69,11 @@ const Top: React.FC = () => {
             />
           ))}
         </div>
-        <button className="Top__post-button" onClick={navigateToPostForm}>
+        <button
+          className="Top__post-button"
+          onClick={handlePostButtonClick}
+          disabled={isGuest === null ? true : false}
+        >
           +
         </button>
       </div>
