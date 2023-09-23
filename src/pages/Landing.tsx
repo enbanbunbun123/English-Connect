@@ -1,4 +1,5 @@
 import SignInButton from "../components/SignInButton";
+import SignInGuest from "../components/SignInGuest";
 // import Slider from "../components/Slider";
 import "../stylesheet/landing.scss";
 
@@ -18,6 +19,7 @@ const Landing: React.FC = () => {
                 PC,スマートフォンでいつでもどこでも全国のイベントを投稿・検索できます。あなたも始めてみませんか？
               </div>
               <SignInButton />
+              <SignInGuest />
             </div>
           </div>
         </div>
