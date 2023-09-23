@@ -24,7 +24,7 @@ const Landing: React.FC = () => {
           </div>
         </div>
         <div className="Landing__contents">
-          <div className="Landing__contents__title">Contents</div>
+          <div className="Landing__contents__title">Concept</div>
           <ol className="Landing__contents__content">
             <li>
               <span>Event Searchについて</span>
@@ -35,6 +35,9 @@ const Landing: React.FC = () => {
                 有名なイベントからローカルなイベントまで、幅広く投稿可能です。
               </p>
             </li>
+          </ol>
+          <div className="Landing__contents__title">Contents</div>
+          <ol className="Landing__contents__content">
             <li>
               <span>イベントの投稿・閲覧</span>
               <p>
@@ -44,11 +47,11 @@ const Landing: React.FC = () => {
                 投稿できるイベントは有名なものからローカルなものまで投稿可能です。
               </p>
             </li>
-            {/* <li>
+            <li>
               <span>ゲストモードでの閲覧</span>
               <p>ゲストモードではサインインをせずに投稿の閲覧が可能です。</p>
               <p>※ゲストモードでの投稿はできませんので、ご注意ください。</p>
-            </li> */}
+            </li>
           </ol>
         </div>
       </div>
