@@ -2,7 +2,10 @@
   &__text {
     margin-bottom: 20px;
     width: 50%;
-    // margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     &__title {
       font-size: 30px;
@@ -45,10 +48,6 @@
         padding: 10px;
       }
     }
-  }
-
-  &__wrapper {
-    position: relative;
   }
 
   &__image {

@@ -1,5 +1,6 @@
 import { signInAnonymously } from "firebase/auth";
 import { auth } from "../firebase";
+import "../stylesheet/signInGuest.scss";
 
 const SignInGuest: React.FC = () => {
   const signInAsGuest = () => {
@@ -15,7 +16,7 @@ const SignInGuest: React.FC = () => {
   return (
     <>
       <div className="SignInGuest" onClick={signInAsGuest}>
-        <button>ゲストログイン（閲覧用）</button>
+        <div>ゲストログイン（閲覧用）</div>
       </div>
     </>
   );
