@@ -8,6 +8,7 @@ import MyPage from "./pages/MyPage";
 import Header from "./components/Header";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const [user] = useAuthState(auth);
@@ -15,12 +16,15 @@ const App: React.FC = () => {
   return (
     <div className="App">
       {user && <Header />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/post-form" element={<PostForm />} />
-        <Route path="/item-detail/:id" element={<ItemDetail />} />
-        <Route path="/my-page/:userId" element={<MyPage />} />
-      </Routes>
+      <div className="App__content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/post-form" element={<PostForm />} />
+          <Route path="/item-detail/:id" element={<ItemDetail />} />
+          <Route path="/my-page/:userId" element={<MyPage />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 };
