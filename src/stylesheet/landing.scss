@@ -1,4 +1,8 @@
 .Landing {
+  &__wrapper {
+    position: relative;
+  }
+
   &__text {
     margin-bottom: 20px;
     width: 50%;
