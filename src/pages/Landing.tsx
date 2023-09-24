@@ -23,9 +23,9 @@ const Landing: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="Landing__contents">
-          <div className="Landing__contents__title">Concept</div>
-          <ol className="Landing__contents__content">
+        <div className="Landing__concept">
+          <div className="Landing__concept__title">Concept</div>
+          <ol className="Landing__concept__content">
             <li>
               <span>Event Searchについて</span>
               <p>
@@ -36,6 +36,8 @@ const Landing: React.FC = () => {
               </p>
             </li>
           </ol>
+        </div>
+        <div className="Landing__contents">
           <div className="Landing__contents__title">Contents</div>
           <ol className="Landing__contents__content">
             <li>

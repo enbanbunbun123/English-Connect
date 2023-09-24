@@ -25,6 +25,35 @@
     }
   }
 
+  &__concept {
+    color: #101c2e;
+    background-color: #fff;
+
+    &__title {
+      font-size: 38px;
+      font-weight: 400;
+      padding: 30px 0 0;
+    }
+
+    &__content {
+      list-style: none;
+      padding: 0 60px 30px;
+
+      span {
+        display: block;
+        font-size: 20px;
+        font-weight: 800;
+        padding: 20px 0 10px;
+      }
+
+      p {
+        font-size: 12px;
+        margin: 0;
+        padding: 10px;
+      }
+    }
+  }
+
   &__contents {
     color: #fff;
     background-color: #101c2e;
@@ -37,7 +66,7 @@
 
     &__content {
       list-style: none;
-      padding: 0 60px 60px;
+      padding: 0 60px 40px;
 
       span {
         display: block;
