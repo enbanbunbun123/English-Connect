@@ -1,6 +1,5 @@
 import SignInButton from "../components/SignInButton";
 import SignInGuest from "../components/SignInGuest";
-// import Slider from "../components/Slider";
 import "../stylesheet/landing.scss";
 
 const Landing: React.FC = () => {
@@ -9,7 +8,6 @@ const Landing: React.FC = () => {
       <div className="Landing">
         <div className="Landing__wrapper">
           <img className="Landing__image" src="images/event2.jpg" alt=""></img>
-          {/* <Slider /> */}
           <div className="Landing__overlay">
             <div className="Landing__text">
               <div className="Landing__text__title">
