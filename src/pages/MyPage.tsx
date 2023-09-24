@@ -2,6 +2,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import BackToHomeButton from "../components/BackToHomeButton";
 import { useEffect, useState } from "react";
 import "../stylesheet/myPage.scss";
+import "../stylesheet/itemDetail.scss";
 import {
   equalTo,
   get,
@@ -81,16 +82,20 @@ const MyPage = () => {
           {isEditing ? (
             <>
               <input
-                value={displayName}
-                onChange={(e) => setDisplayName(e.target.value)}
-                placeholder="名前を入力"
-              />
-              <input
+                className="ItemDetail__edit__title"
                 value={photoURL}
                 onChange={(e) => setPhotoURL(e.target.value)}
                 placeholder="画像のURLを入力"
               />
-              <button onClick={handleSave}>編集完了</button>
+              <input
+                className="ItemDetail__edit__title"
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+                placeholder="名前を入力"
+              />
+              <button className="MyPage__contents__button" onClick={handleSave}>
+                編集完了
+              </button>
             </>
           ) : (
             <>
