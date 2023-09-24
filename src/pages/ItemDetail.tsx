@@ -14,6 +14,8 @@ const ItemDetail: React.FC = () => {
   const [editText, setEditText] = useState<string>("");
   const [editDescription, setEditDescription] = useState<string>("");
   const [editStartData, setEditStartData] = useState<string>("");
+  const [likes, setLikes] = useState<Record<string, boolean>>({});
+  const [hasLiked, setHasLiked] = useState<boolean>(false);
 
   const [postData, setPostData] = useState<{
     userId?: string;
@@ -38,6 +40,34 @@ const ItemDetail: React.FC = () => {
       off(postRef, "value", listener);
     };
   }, [id]);
+
+  useEffect(() => {
+    const db = getDatabase();
+    const likesRef = ref(db, `posts/${id}/likes`);
+    const listener = onValue(likesRef, (snapshot) => {
+      const data = snapshot.val() || {};
+      setLikes(data);
+      if (currentUserId) {
+        setHasLiked(!!data[currentUserId]);
+      } else {
+        setHasLiked(false);
+      }
+    });
+
+    return () => {
+      off(likesRef, "value", listener);
+    };
+  }, [id, currentUserId]);
+
+  const handleLike = () => {
+    const db = getDatabase();
+    const likesRef = ref(db, `posts/${id}/likes/${currentUserId}`);
+    if (hasLiked) {
+      remove(likesRef);
+    } else {
+      set(likesRef, true);
+    }
+  };
 
   const handleDelete = () => {
     const isConfirmed = window.confirm("本当に削除しますか？");
@@ -106,23 +136,31 @@ const ItemDetail: React.FC = () => {
             />
           </>
         ) : (
-          <div className="ItemDetail__contents">
-            <h3>イベント名 : {postData?.text}</h3>
-            <p>説明 : {postData?.postDescription}</p>
-            <p className="ItemDetail__contents__user">
-              投稿者 :{" "}
-              <img
-                className="ItemDetail__contents__user-image"
-                src={postData?.userImage || undefined}
-                alt=""
-              ></img>
-              {postData?.userName}
-            </p>
-            <p>
-              投稿日 : {new Date(postData?.timestamp || "").toLocaleString()}
-            </p>
-            <p>開始日 : {postData?.startData}</p>
-          </div>
+          <>
+            <div className="ItemDetail__contents">
+              <h3>イベント名 : {postData?.text}</h3>
+              <p>説明 : {postData?.postDescription}</p>
+              <p className="ItemDetail__contents__user">
+                投稿者 :{" "}
+                <img
+                  className="ItemDetail__contents__user-image"
+                  src={postData?.userImage || undefined}
+                  alt=""
+                ></img>
+                {postData?.userName}
+              </p>
+              <p>
+                投稿日 : {new Date(postData?.timestamp || "").toLocaleString()}
+              </p>
+              <p>開始日 : {postData?.startData}</p>
+            </div>
+            <div className="ItemDetail__likes">
+              <button onClick={handleLike}>
+                {hasLiked ? "いいねを取り消す" : "いいね"}
+              </button>
+              <span>{Object.keys(likes).length} いいね</span>
+            </div>
+          </>
         )}
         {currentUserId === postUserId && (
           <>
