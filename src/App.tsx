@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import Footer from "./components/Footer";
+import Ranking from "./pages/Ranking";
 
 const App: React.FC = () => {
   const [user] = useAuthState(auth);
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path="/post-form" element={<PostForm />} />
           <Route path="/item-detail/:id" element={<ItemDetail />} />
           <Route path="/my-page/:userId" element={<MyPage />} />
+          <Route path="/ranking" element={<Ranking />} />
         </Routes>
       </div>
       <Footer />
