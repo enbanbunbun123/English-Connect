@@ -168,18 +168,20 @@ const ItemDetail: React.FC = () => {
         )}
         {currentUserId === postUserId && (
           <>
-            {isEdit ? (
-              <button className="ItemDetail__button" onClick={handleSave}>
-                変更を保存する
+            <div className="ItemDetail__buttons">
+              {isEdit ? (
+                <button className="ItemDetail__button" onClick={handleSave}>
+                  変更を保存する
+                </button>
+              ) : (
+                <button className="ItemDetail__button" onClick={handleEdit}>
+                  投稿を編集する
+                </button>
+              )}
+              <button className="ItemDetail__button" onClick={handleDelete}>
+                投稿を削除する
               </button>
-            ) : (
-              <button className="ItemDetail__button" onClick={handleEdit}>
-                投稿を編集する
-              </button>
-            )}
-            <button className="ItemDetail__button" onClick={handleDelete}>
-              投稿を削除する
-            </button>
+            </div>
           </>
         )}
       </div>
