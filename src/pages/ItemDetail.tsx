@@ -155,9 +155,13 @@ const ItemDetail: React.FC = () => {
               <p>開始日 : {postData?.startData}</p>
             </div>
             <div className="ItemDetail__likes">
-              <button onClick={handleLike}>
-                {hasLiked ? "いいねを取り消す" : "いいね"}
-              </button>
+              <div onClick={handleLike}>
+                {hasLiked ? (
+                  <img src="/goodMarks/afterGood.png" alt="いいねを取り消す" />
+                ) : (
+                  <img src="/goodMarks/beforeGood.png" alt="いいね" />
+                )}
+              </div>
               <span>{Object.keys(likes).length} いいね</span>
             </div>
           </>
