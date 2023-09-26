@@ -70,25 +70,37 @@ const Header: React.FC = () => {
               <>
                 {user && !user.isAnonymous && (
                   <>
-                    <Link to={`/my-page/${user.uid}`}>
+                    <Link
+                      to={`/my-page/${user.uid}`}
+                      onClick={() => setIsOpen(false)}
+                    >
                       <div className="Header__modal-menu__user-info">
                         <img src={user.photoURL || undefined} alt=""></img>
                       </div>
                     </Link>
                   </>
                 )}
-                <Link className="Header__modal-menu__menu" to={`/`}>
+                <Link
+                  className="Header__modal-menu__menu"
+                  to={`/`}
+                  onClick={() => setIsOpen(false)}
+                >
                   <div>Top</div>
                 </Link>
                 {!user.isAnonymous && (
                   <Link
                     className="Header__modal-menu__menu"
                     to={`/my-page/${user.uid}`}
+                    onClick={() => setIsOpen(false)}
                   >
                     <div>マイページ</div>
                   </Link>
                 )}
-                <Link className="Header__modal-menu__menu" to={`/ranking`}>
+                <Link
+                  className="Header__modal-menu__menu"
+                  to={`/ranking`}
+                  onClick={() => setIsOpen(false)}
+                >
                   <div>ランキング</div>
                 </Link>
                 <SignOutButton />
