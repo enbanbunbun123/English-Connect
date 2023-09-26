@@ -117,6 +117,10 @@
         display: none;
       }
     }
+
+    &__signOut-button {
+      display: none;
+    }
   }
 
   @media screen and (max-width: 650px) {

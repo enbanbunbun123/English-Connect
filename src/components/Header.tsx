@@ -50,7 +50,9 @@ const Header: React.FC = () => {
           )}
         </div>
         <div className="Header__right">
-          <SignOutButton />
+          <div className="Header__signOut-button">
+            <SignOutButton />
+          </div>
           {user && !user.isAnonymous && (
             <>
               <Link to={`/my-page/${user.uid}`}>
