@@ -64,7 +64,6 @@ const Header: React.FC = () => {
             ☰
           </div>
         </div>
-
         {isOpen && (
           <div className="Header__modal-menu">
             {user && (
@@ -72,7 +71,7 @@ const Header: React.FC = () => {
                 {user && !user.isAnonymous && (
                   <>
                     <Link to={`/my-page/${user.uid}`}>
-                      <div className="Header__right__user-info">
+                      <div className="Header__modal-menu__user-info">
                         <img src={user.photoURL || undefined} alt=""></img>
                       </div>
                     </Link>
