@@ -16,7 +16,7 @@ const SignInGuest: React.FC = () => {
   return (
     <>
       <div className="SignInGuest" onClick={signInAsGuest}>
-        <div>ゲストログイン（閲覧用）</div>
+        <div>ゲストログイン</div>
       </div>
     </>
   );

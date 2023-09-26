@@ -17,4 +17,16 @@
     background-color: #fff;
     color: #101c2e;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 145px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 115px;
+    height: 30px;
+    font-size: 10px;
+  }
 }
