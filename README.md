@@ -1,6 +1,9 @@
 # Event Search
 ## こちらのURLからサービスを利用できます。
+
 https://fir-signin-99989.firebaseapp.com/
+
+![icon](https://github.com/enbanbunbun123/Event-Search/assets/130529456/e760cb8b-9176-4096-87a2-4b3e001657ef)
 
 __Event Search__ は、ユーザー間でのイベントの投稿・閲覧をするためのwebサービスです。
 
