@@ -6,6 +6,14 @@
   border-bottom: 2px solid #fff;
   height: 120px;
 
+  &__icon {
+    margin: 0 20px;
+
+    &__image {
+      width: 150px;
+    }
+  }
+
   &__right {
     display: flex;
     justify-content: flex-end;
@@ -141,6 +149,14 @@
   }
 
   @media screen and (max-width: 425px) {
+    &__icon {
+      margin: 0;
+
+      &__image {
+        width: 120px;
+      }
+    }
+
     &__right {
       height: 80px;
 

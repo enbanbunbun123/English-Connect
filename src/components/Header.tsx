@@ -30,6 +30,13 @@ const Header: React.FC = () => {
     <>
       <div className="Header">
         <div className="Header__left">
+          <div className="Header__icon">
+            <img
+              className="Header__icon__image"
+              src="/icons/icon.png"
+              alt="EVENT SEARCH"
+            ></img>
+          </div>
           {user && (
             <>
               <Link className="Header__left__menu" to={`/`}>
