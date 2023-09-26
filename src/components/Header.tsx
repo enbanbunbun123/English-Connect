@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import "../stylesheet/header.scss";
 import SignOutButton from "./SignOutButton";
-import { User } from "firebase/auth";
 import { Link } from "react-router-dom";
+import { User } from "firebase/auth";
 
 const Header: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
