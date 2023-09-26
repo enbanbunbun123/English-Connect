@@ -8,6 +8,11 @@ import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -55,7 +60,43 @@ const Header: React.FC = () => {
               </Link>
             </>
           )}
+          <div className="Header__hamburger-menu" onClick={toggleMenu}>
+            ☰
+          </div>
         </div>
+
+        {isOpen && (
+          <div className="Header__modal-menu">
+            {user && (
+              <>
+                {user && !user.isAnonymous && (
+                  <>
+                    <Link to={`/my-page/${user.uid}`}>
+                      <div className="Header__right__user-info">
+                        <img src={user.photoURL || undefined} alt=""></img>
+                      </div>
+                    </Link>
+                  </>
+                )}
+                <Link className="Header__modal-menu__menu" to={`/`}>
+                  <div>Top</div>
+                </Link>
+                {!user.isAnonymous && (
+                  <Link
+                    className="Header__modal-menu__menu"
+                    to={`/my-page/${user.uid}`}
+                  >
+                    <div>マイページ</div>
+                  </Link>
+                )}
+                <Link className="Header__modal-menu__menu" to={`/ranking`}>
+                  <div>ランキング</div>
+                </Link>
+                <SignOutButton />
+              </>
+            )}
+          </div>
+        )}
       </div>
     </>
   );
