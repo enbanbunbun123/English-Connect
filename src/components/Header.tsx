@@ -31,11 +31,13 @@ const Header: React.FC = () => {
       <div className="Header">
         <div className="Header__left">
           <div className="Header__icon">
-            <img
-              className="Header__icon__image"
-              src="/icons/icon.png"
-              alt="EVENT SEARCH"
-            ></img>
+            <Link to={`/`}>
+              <img
+                className="Header__icon__image"
+                src="/icons/icon.png"
+                alt="EVENT SEARCH"
+              ></img>
+            </Link>
           </div>
           {user && (
             <>
