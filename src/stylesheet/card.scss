@@ -14,7 +14,6 @@
 
   &__title {
     position: relative;
-    white-space: nowrap;
     font-size: 18px;
     font-weight: bold;
     margin: 5px 0;
@@ -29,6 +28,18 @@
     border-radius: 10px;
   }
 
+  &__title-box {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: calc(100% / 3 - 10px);
+  }
+  @media screen and (max-width: 700px) {
+    width: calc(100% / 2 - 10px);
+  }
   @media screen and (max-width: 425px) {
     padding: 10px;
     &__title {

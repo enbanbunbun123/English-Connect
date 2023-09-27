@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../stylesheet/card.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type CardProps = {
   text: string;
@@ -12,6 +12,7 @@ type CardProps = {
 const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState<number>(0);
+  const titleRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const startTime = new Date(startData).getTime();
@@ -47,7 +48,11 @@ const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
     <>
       <div className="card" onClick={navigateToItemDetail}>
         <img className="card__image" src={imageUrl} alt=""></img>
-        <div className="card__title">{text}</div>
+        <div className="card__title-box">
+          <div className="card__title" ref={titleRef}>
+            {text}
+          </div>
+        </div>
         <div>{formatTimeLeft()}</div>
       </div>
     </>
