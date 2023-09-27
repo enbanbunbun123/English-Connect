@@ -47,7 +47,9 @@ const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
   return (
     <>
       <div className="card" onClick={navigateToItemDetail}>
-        <img className="card__image" src={imageUrl} alt=""></img>
+        <div className="card__image-wrapper">
+          <img className="card__image" src={imageUrl} alt=""></img>
+        </div>
         <div className="card__title-box">
           <div className="card__title" ref={titleRef}>
             {text}

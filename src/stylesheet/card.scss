@@ -1,16 +1,16 @@
 .card {
   border: 1px solid #ccc;
-  padding: 10px;
   margin: 5px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: calc(100% / 4 - 10px);
   box-sizing: border-box;
+  overflow: hidden;
 
   &__title {
     position: relative;
@@ -19,13 +19,23 @@
     margin: 5px 0;
   }
 
-  &__image {
+  &__image-wrapper {
     width: 100%;
-    height: 200px;
-    max-width: 100%;
-    max-height: 200px;
-    background-color: #d5d5d5;
-    border-radius: 10px;
+    padding-top: 100%;
+    background-color: #e3e2e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   &__title-box {
@@ -37,16 +47,17 @@
   @media screen and (max-width: 900px) {
     width: calc(100% / 3 - 10px);
   }
+
   @media screen and (max-width: 700px) {
     width: calc(100% / 2 - 10px);
   }
+
   @media screen and (max-width: 425px) {
-    padding: 10px;
-    &__title {
-      margin: 10px 0;
-    }
-    &__text {
-      margin: 10px 0;
-    }
+    // &__title {
+    //   margin: 5px 0;
+    // }
+    // &__text {
+    //   margin: 5px 0;
+    // }
   }
 }
