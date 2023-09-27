@@ -41,19 +41,21 @@ const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    return `開始まで ${hours}h ${minutes}m ${seconds}s`;
+    return `${hours}h ${minutes}m ${seconds}s`;
   };
 
   return (
     <>
       <div className="card" onClick={navigateToItemDetail}>
-        <img className="card__image" src={imageUrl} alt=""></img>
+        <div className="card__image-wrapper">
+          <img className="card__image" src={imageUrl} alt=""></img>
+        </div>
         <div className="card__title-box">
           <div className="card__title" ref={titleRef}>
             {text}
           </div>
         </div>
-        <div>{formatTimeLeft()}</div>
+        <div className="card__status">{formatTimeLeft()}</div>
       </div>
     </>
   );
