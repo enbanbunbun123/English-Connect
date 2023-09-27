@@ -41,7 +41,7 @@ const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    return `開始まで ${hours}h ${minutes}m ${seconds}s`;
+    return `${hours}h ${minutes}m ${seconds}s`;
   };
 
   return (
@@ -55,7 +55,7 @@ const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
             {text}
           </div>
         </div>
-        <div>{formatTimeLeft()}</div>
+        <div className="card__status">{formatTimeLeft()}</div>
       </div>
     </>
   );

@@ -16,12 +16,13 @@
     position: relative;
     font-size: 18px;
     font-weight: bold;
-    margin: 5px 0;
+    height: 25px;
   }
 
   &__image-wrapper {
     width: 100%;
-    padding-top: 65%;
+    padding-top: 75%;
+    margin: 5px 0;
     background-color: #e3e2e2;
     display: flex;
     align-items: center;
@@ -40,8 +41,16 @@
 
   &__title-box {
     width: 100%;
+    padding: 10px 0 5px;
     display: inline-block;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__status {
+    padding: 8px 0;
   }
 
   @media screen and (max-width: 900px) {
@@ -50,14 +59,24 @@
 
   @media screen and (max-width: 700px) {
     width: calc(100% / 2 - 10px);
+
+    &__title-box {
+      padding: 7px 0 3px;
+    }
   }
 
   @media screen and (max-width: 425px) {
-    // &__title {
-    //   margin: 5px 0;
-    // }
-    // &__text {
-    //   margin: 5px 0;
-    // }
+    &__title {
+      font-size: 15px;
+    }
+
+    &__title-box {
+      padding: 3px 0 2px;
+    }
+
+    &__status {
+      padding: 5px 0;
+      font-size: 13px;
+    }
   }
 }
