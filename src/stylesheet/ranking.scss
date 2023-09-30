@@ -1,6 +1,7 @@
 .Ranking {
   &__contents {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 30px;
@@ -8,6 +9,19 @@
     &__title {
       font-size: 25px;
       font-weight: bold;
+    }
+
+    &__description {
+      font-size: 15px;
+      margin: 10px 0;
+    }
+
+    &__content {
+      padding: 20px 0;
+
+      li {
+        list-style: none;
+      }
     }
   }
 }

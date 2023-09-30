@@ -52,9 +52,9 @@ const Header: React.FC = () => {
                   <div>マイページ</div>
                 </Link>
               )}
-              {/* <Link className="Header__left__menu" to={`/ranking`}>
+              <Link className="Header__left__menu" to={`/ranking`}>
                 <div>ランキング</div>
-              </Link> */}
+              </Link>
             </>
           )}
         </div>
