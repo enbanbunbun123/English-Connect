@@ -19,8 +19,30 @@
     &__content {
       padding: 20px 0;
 
+      ul {
+        padding: 0;
+      }
+
       li {
         list-style: none;
+      }
+    }
+
+    &__post {
+      display: flex;
+      flex-direction: column;
+
+      &__bar {
+        width: 100%;
+        height: 1px;
+        background-color: #c7c7c7;
+        margin: 10px 0;
+      }
+
+      &__rank {
+        display: flex;
+        justify-content: space-between;
+        gap: 100px;
       }
     }
   }
