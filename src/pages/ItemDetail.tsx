@@ -25,6 +25,7 @@ const ItemDetail: React.FC = () => {
     timestamp?: string;
     startData?: string;
     postDescription?: string;
+    imageUrl?: string;
   } | null>(null);
 
   useEffect(() => {
@@ -138,6 +139,15 @@ const ItemDetail: React.FC = () => {
         ) : (
           <>
             <div className="ItemDetail__contents">
+              {postData?.imageUrl && (
+                <div className="ItemDetail__contents__image-wrapper">
+                  <img
+                    className="ItemDetail__contents__image"
+                    src={postData?.imageUrl}
+                    alt=""
+                  />
+                </div>
+              )}
               <h3>イベント名 : {postData?.text}</h3>
               <p>説明 : {postData?.postDescription}</p>
               <p className="ItemDetail__contents__user">
