@@ -48,7 +48,15 @@ const Ranking: React.FC = () => {
             <ul>
               {rankedPosts.map((post, index) => (
                 <li key={post.id}>
-                  {index + 1}位: {post.text} {post.likes}いいね
+                  <div className="Ranking__contents__post">
+                    <div className="Ranking__contents__post__bar"></div>
+                    <div className="Ranking__contents__post__rank">
+                      <span>
+                        {index + 1}位: {post.text}{" "}
+                      </span>
+                      <span>{post.likes}いいね</span>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
