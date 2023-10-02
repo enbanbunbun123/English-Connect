@@ -2,8 +2,11 @@ import { signInWithPopup } from "firebase/auth";
 import { app, auth, provider } from "../firebase";
 import { getDatabase, ref, set } from "firebase/database";
 import "../stylesheet/signInButton.scss";
+import { useNavigate } from "react-router-dom";
 
 const SignInButton: React.FC = () => {
+  const navigate = useNavigate();
+
   const signInWithGoogle = () => {
     const db = getDatabase(app);
 
@@ -18,6 +21,7 @@ const SignInButton: React.FC = () => {
           id: uid,
           gmail: email,
         });
+        navigate("/");
       })
       .catch((error) => {
         console.error("Error signing in with Google: ", error);

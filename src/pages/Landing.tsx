@@ -1,8 +1,14 @@
-import SignInButton from "../components/SignInButton";
+import { useNavigate } from "react-router-dom";
 import SignInGuest from "../components/SignInGuest";
 import "../stylesheet/landing.scss";
 
 const Landing: React.FC = () => {
+  const navigate = useNavigate();
+
+  const navigateToSignIn = () => {
+    navigate("/sign-in");
+  };
+
   return (
     <>
       <div className="Landing">
@@ -16,7 +22,9 @@ const Landing: React.FC = () => {
               <div className="Landing__text__contents">
                 PC,スマートフォンでいつでもどこでも全国のイベントを投稿・検索できます。あなたも始めてみませんか？
               </div>
-              <SignInButton />
+              <div className="Landing__SignInButton" onClick={navigateToSignIn}>
+                サインイン
+              </div>
               <SignInGuest />
             </div>
           </div>
