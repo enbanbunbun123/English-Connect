@@ -3,7 +3,7 @@ import { getDatabase, off, onValue, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import "../stylesheet/itemDetail.scss";
-import BackToHomeButton from "../components/BackToHomeButton";
+import BackToHomeButton from "../components/BackToPreviousPage";
 
 const ItemDetail: React.FC = () => {
   const navigate = useNavigate();

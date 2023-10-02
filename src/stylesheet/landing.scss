@@ -25,9 +25,34 @@
     }
   }
 
+  &__SignIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+    height: 45px;
+    border: 1px solid #949593;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #101c2e;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    margin: 20px 0 0;
+
+    &:hover {
+      background-color: #fff;
+      color: #101c2e;
+    }
+  }
+
   &__concept {
     color: #101c2e;
     background-color: #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
 
     &__title {
       font-size: 38px;
@@ -58,6 +83,10 @@
   &__contents {
     color: #fff;
     background-color: #101c2e;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
 
     &__title {
       font-size: 38px;

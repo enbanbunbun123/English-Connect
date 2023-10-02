@@ -1,5 +1,5 @@
 import { getAuth, updateProfile } from "firebase/auth";
-import BackToHomeButton from "../components/BackToHomeButton";
+import BackToHomeButton from "../components/BackToPreviousPage";
 import { useEffect, useState } from "react";
 import "../stylesheet/myPage.scss";
 import "../stylesheet/itemDetail.scss";

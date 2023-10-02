@@ -107,13 +107,13 @@ const Header: React.FC = () => {
                     <div>マイページ</div>
                   </Link>
                 )}
-                {/* <Link
+                <Link
                   className="Header__modal-menu__menu"
                   to={`/ranking`}
                   onClick={() => setIsOpen(false)}
                 >
                   <div>ランキング</div>
-                </Link> */}
+                </Link>
                 <SignOutButton />
               </>
             )}
