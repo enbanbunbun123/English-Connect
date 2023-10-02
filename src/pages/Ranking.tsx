@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import BackToHomeButton from "../components/BackToHomeButton";
+import BackToHomeButton from "../components/BackToPreviousPage";
 import "../stylesheet/ranking.scss";
 import { getDatabase, off, onValue, ref } from "firebase/database";
 
