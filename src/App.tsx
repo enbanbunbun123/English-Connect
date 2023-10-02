@@ -6,18 +6,14 @@ import PostForm from "./pages/PostForm";
 import ItemDetail from "./pages/ItemDetail";
 import MyPage from "./pages/MyPage";
 import Header from "./components/Header";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase";
 import Footer from "./components/Footer";
 import Ranking from "./pages/Ranking";
 import SignIn from "./pages/SignIn";
 
 const App: React.FC = () => {
-  const [user] = useAuthState(auth);
-
   return (
     <div className="App">
-      {user && <Header />}
+      <Header />
       <div className="App__content">
         <Routes>
           <Route path="/" element={<Home />} />
