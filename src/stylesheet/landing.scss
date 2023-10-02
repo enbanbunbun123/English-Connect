@@ -49,6 +49,10 @@
   &__concept {
     color: #101c2e;
     background-color: #fff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
 
     &__title {
       font-size: 38px;
@@ -79,6 +83,10 @@
   &__contents {
     color: #fff;
     background-color: #101c2e;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
 
     &__title {
       font-size: 38px;
