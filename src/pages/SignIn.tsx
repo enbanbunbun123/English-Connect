@@ -1,9 +1,13 @@
 import SignInButton from "../components/SignInButton";
+import "../stylesheet/signIn.scss";
 
 export const SignIn = () => {
   return (
     <>
-      <SignInButton />
+      <div className="SignIn">
+        <div className="SignIn__title">EVENT SEARCHへようこそ！</div>
+        <SignInButton />
+      </div>
     </>
   );
 };
