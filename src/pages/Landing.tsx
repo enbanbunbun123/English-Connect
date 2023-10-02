@@ -22,7 +22,7 @@ const Landing: React.FC = () => {
               <div className="Landing__text__contents">
                 PC,スマートフォンでいつでもどこでも全国のイベントを投稿・検索できます。あなたも始めてみませんか？
               </div>
-              <div className="Landing__SignInButton" onClick={navigateToSignIn}>
+              <div className="Landing__SignIn" onClick={navigateToSignIn}>
                 サインイン
               </div>
               <SignInGuest />
