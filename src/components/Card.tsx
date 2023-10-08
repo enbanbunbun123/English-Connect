@@ -35,13 +35,14 @@ const Card: React.FC<CardProps> = ({ text, id, startData, imageUrl }) => {
   const formatTimeLeft = () => {
     if (timeLeft < 0) return "イベント終了";
 
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
       (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    return `${hours}h ${minutes}m ${seconds}s`;
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
   };
 
   return (
