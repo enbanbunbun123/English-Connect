@@ -18,6 +18,10 @@
   }
 
   &__contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &__image-wrapper {
       width: 100%;
       max-width: 250px;
