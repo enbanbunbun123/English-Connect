@@ -146,6 +146,12 @@
         font-size: 15px;
       }
     }
+
+    &__SignIn {
+      width: 145px;
+      height: 35px;
+      font-size: 12px;
+    }
   }
 
   @media screen and (max-width: 600px) {
@@ -164,9 +170,15 @@
       }
 
       &__contents {
-        margin-top: 5px;
+        margin: 5px 0 10px;
         font-size: 11px;
       }
+    }
+    &__SignIn {
+      margin: 10px 0 0;
+      width: 115px;
+      height: 30px;
+      font-size: 10px;
     }
   }
 }
